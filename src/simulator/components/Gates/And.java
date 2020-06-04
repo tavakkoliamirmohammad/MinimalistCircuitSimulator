@@ -15,7 +15,6 @@ public class And extends Component {
         for (Wire w: inputs) {
             result.setSignal(result.getSignal() && w.getSignal());
         }
-
         getOutput(0).setSignal(result.getSignal());
     }
 }

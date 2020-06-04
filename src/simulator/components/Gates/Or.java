@@ -15,7 +15,6 @@ public class Or extends Component {
         for(Wire w: inputs) {
             result.setSignal(result.getSignal() || w.getSignal());
         }
-
         outputs.get(0).setSignal(result.getSignal());
     }
 }

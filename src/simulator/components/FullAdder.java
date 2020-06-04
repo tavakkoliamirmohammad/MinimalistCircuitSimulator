@@ -17,6 +17,7 @@ public class FullAdder extends Component {
         HalfAdder halfAdder2 = new HalfAdder("half_2", getInput(2), halfAdder1.getOutput(0));
         halfAdder2.startComponent();
         Or or = new Or("or_1", halfAdder1.getOutput(1), halfAdder2.getOutput(1));
+        or.startComponent();
         outputs.set(0, halfAdder2.getOutput(0));
         outputs.set(1, or.getOutput(0));
     }

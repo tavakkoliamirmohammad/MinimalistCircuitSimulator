@@ -9,7 +9,7 @@ public abstract class Component implements Runnable, Connectable {
     protected ArrayList<Wire> inputs;
     protected ArrayList<Wire> outputs;
     protected long delay;
-    protected Thread thread;
+//    protected Thread thread;
 
     protected Component(String label, Wire... inputs) {
         this(label, 0, inputs);
@@ -23,24 +23,25 @@ public abstract class Component implements Runnable, Connectable {
         for (Wire w : inputs) {
             this.inputs.add(w);
         }
-        thread = new Thread(this);
-        Circuit.addComponent(this);
+//        thread = new Thread(this);
+//        Circuit.addComponent(this);
     }
 
     protected abstract void runComponent();
 
     @Override
     public void run() {
-        try {
-            Thread.sleep(delay);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(delay);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         runComponent();
     }
 
     public void startComponent() {
-        thread.start();
+        run();
+//        thread.start();
     }
 
     public void addInput(Wire... inputWires) {
