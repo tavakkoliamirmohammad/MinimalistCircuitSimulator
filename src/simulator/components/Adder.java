@@ -1,5 +1,9 @@
 package simulator.components;
 
+import simulator.components.Gates.And;
+import simulator.components.Gates.Or;
+import simulator.components.Gates.Xor;
+
 public class Adder extends Function {
     public Adder(String label, Wire... inputs) {
         super(label, inputs);

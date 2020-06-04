@@ -1,13 +1,16 @@
-package simulator.components;
+package simulator.components.Gates;
+
+import simulator.components.Component;
+import simulator.components.Wire;
 
 public class Or extends Component {
-    public Or(String label, Wire ... inputs) {
+    public Or(String label, Wire... inputs) {
         super(label, inputs);
         outputs.add(new Wire(false));
     }
 
     @Override
-    public void runComponent() {
+    protected void runComponent() {
         Wire result = new Wire(false);
         for(Wire w: inputs) {
             result.setSignal(result.getSignal() || w.getSignal());

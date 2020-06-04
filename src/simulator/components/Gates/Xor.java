@@ -1,4 +1,7 @@
-package simulator.components;
+package simulator.components.Gates;
+
+import simulator.components.Component;
+import simulator.components.Wire;
 
 public class Xor extends Component {
     public Xor(String label, Wire... inputs) {
@@ -7,7 +10,7 @@ public class Xor extends Component {
     }
 
     @Override
-    public void runComponent() {
+    protected void runComponent() {
         int onesCounter = 0;
         for(Wire w: inputs) {
             if(w.getSignal()) {

@@ -1,4 +1,7 @@
-package simulator.components;
+package simulator.components.Gates;
+
+import simulator.components.Component;
+import simulator.components.Wire;
 
 public class Not extends Component {
     public Not(String label, Wire... inputs) {
@@ -9,7 +12,7 @@ public class Not extends Component {
     }
 
     @Override
-    public void runComponent() {
+    protected void runComponent() {
         for(int i = 0; i < inputs.size(); ++i) {
             outputs.get(i).setSignal(!inputs.get(i).getSignal());
         }
