@@ -20,25 +20,23 @@ public abstract class Component implements Runnable, Connectable {
         this.delay = delay;
         outputs = new ArrayList<>();
         this.inputs = new ArrayList<>();
-        for (Wire w: inputs) {
+        for (Wire w : inputs) {
             this.inputs.add(w);
         }
         thread = new Thread(this);
         Circuit.addComponent(this);
     }
 
-    public abstract void runComponent();
+    protected abstract void runComponent();
 
     @Override
     public void run() {
-        while (true) {
-            try {
-                Thread.sleep(delay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            runComponent();
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        runComponent();
     }
 
     public void startComponent() {
@@ -46,14 +44,14 @@ public abstract class Component implements Runnable, Connectable {
     }
 
     public void addInput(Wire... inputWires) {
-        for (Wire w: inputWires) {
+        for (Wire w : inputWires) {
             inputs.add(w);
         }
     }
 
     @Override
     public void setInput(Wire inputWire, int inputIndex) {
-        if(getInputs().size() <= inputIndex) {
+        if (getInputs().size() <= inputIndex) {
             while (getInputs().size() < inputIndex) {
                 addInput(new Wire());
             }
