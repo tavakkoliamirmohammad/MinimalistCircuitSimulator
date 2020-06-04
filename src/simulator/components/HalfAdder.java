@@ -16,7 +16,7 @@ public class HalfAdder extends Component {
         And carry = new And("and_1", getInput(0), getInput(1));
         Layer layer = new Layer("layer_1");
         layer.addComponent(sum, carry);
-        layer.runComponent();
+        layer.startComponent();
         for (int i = 0; i < outputs.size(); ++i) {
             outputs.set(0, layer.layerOutputs().get(i));
         }
