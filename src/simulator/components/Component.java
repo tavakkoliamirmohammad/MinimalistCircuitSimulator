@@ -67,6 +67,11 @@ public abstract class Component implements Runnable, Connectable {
     }
 
     @Override
+    public Wire getInput(int index) {
+        return inputs.get(index);
+    }
+
+    @Override
     public String getLabel() {
         return label;
     }
